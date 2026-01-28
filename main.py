@@ -7,6 +7,7 @@ BURNT_KEY = "burnt"
 PROTEIN_KEY = "protein"
 WEIGHT_KEY = "weight"
 DAY_KEYS = MEALS + [BURNT_KEY, PROTEIN_KEY, WEIGHT_KEY]
+APP_RUNNING = True
 
 def app_path():
     if getattr(sys, 'frozen', False):
@@ -637,9 +638,10 @@ def view_month():
 
 
 def main_loop():
+    global APP_RUNNING
     app_print("what would you like to do?")
     global user_settings
-    while True:
+    while APP_RUNNING:
         app_print("__________________________________________")
         response = app_input("options: (log, update, view, settings, quit): ").strip().lower()
         
@@ -669,6 +671,7 @@ def main_loop():
                 seperator()
 
         elif response == "quit":
+            APP_RUNNING = False
             break
 
 

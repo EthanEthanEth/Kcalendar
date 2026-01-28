@@ -1,12 +1,11 @@
 {
-  
   "2026-01-28": {
-    "breakfast": null,
-    "burnt": 650,
-    "dinner": 950,
-    "lunch": 680,
-    "protein": 131,
-    "weight": 95.1
+    "breakfast": 1200,
+    "burnt": null,
+    "dinner": 1200,
+    "lunch": 1200,
+    "protein": 80,
+    "weight": 97.8
   },
   "2026-01-29": {
     "breakfast": 650,

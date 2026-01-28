@@ -12,6 +12,17 @@ def main():
     root.title("kcalendar")
     root.geometry("1100x750")
 
+    def on_close():
+        backend.APP_RUNNING = False
+        try:
+            root.destroy()
+        except:
+            pass
+        import sys
+        sys.exit(0)
+
+    root.protocol("WM_DELETE_WINDOW", on_close)
+
     # =========================
     # 2) Layout (frames / boxes)
     # =========================
@@ -99,7 +110,7 @@ def main():
         entry.focus()
         waiting_for_input = True
         input_value = None
-        while waiting_for_input:
+        while waiting_for_input and backend.APP_RUNNING:
             root.update()
         return input_value
 
