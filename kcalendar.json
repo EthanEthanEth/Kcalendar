@@ -1,0 +1,35 @@
+{
+  
+  "2026-01-28": {
+    "breakfast": null,
+    "burnt": 650,
+    "dinner": 950,
+    "lunch": 680,
+    "protein": 131,
+    "weight": 95.1
+  },
+  "2026-01-29": {
+    "breakfast": 650,
+    "burnt": null,
+    "dinner": 800,
+    "lunch": 350,
+    "protein": 78,
+    "weight": 95.6
+  },
+  "2026-01-30": {
+    "breakfast": 550,
+    "burnt": 350,
+    "dinner": 1000,
+    "lunch": 350,
+    "protein": 105,
+    "weight": 95.4
+  },
+  "2026-01-31": {
+    "breakfast": 225,
+    "burnt": null,
+    "dinner": 800,
+    "lunch": 650,
+    "protein": 75,
+    "weight": 95.3
+  }
+}

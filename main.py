@@ -7,8 +7,8 @@ PROTEIN_KEY = "protein"
 WEIGHT_KEY = "weight"
 DAY_KEYS = MEALS + [BURNT_KEY, PROTEIN_KEY, WEIGHT_KEY]
 
-if os.path.exists("kcalendar_test.json"):
-    with open("kcalendar_test.json", "r") as f:
+if os.path.exists("kcalendar.json"):
+    with open("kcalendar.json", "r") as f:
         kcalendar = json.load(f)
 else:
     kcalendar = {}
@@ -267,7 +267,7 @@ def log_update():
                      "weight":weight_val}
     kcalendar[date] = day_data
     print(kcalendar)
-    with open("kcalendar_test.json", "w") as f:
+    with open("kcalendar.json", "w") as f:
         json.dump(kcalendar, f, indent=2, sort_keys=True)
 
 def update_today():
@@ -303,7 +303,7 @@ def update_today():
             day["weight"] = wval
 
 
-    with open("kcalendar_test.json", "w") as f:
+    with open("kcalendar.json", "w") as f:
         json.dump(kcalendar, f, indent=2, sort_keys=True)
 
     tcal = total_cal(day)
