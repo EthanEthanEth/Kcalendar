@@ -561,8 +561,10 @@ def main():
     root.after(100, draw_calendar)
     root.after(150, draw_pie)
     root.after(150, draw_bar_week)
-
-    root.after(0, backend.main_loop)
+    def run_backend():
+        backend.main_loop()
+        root.after(0, on_close)
+    root.after(0, run_backend)
 
     write_line("kcalendar GUI — terminal mode")
     root.mainloop()
