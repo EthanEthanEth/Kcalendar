@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 import datetime
 MEALS = ["breakfast", "lunch", "dinner"]
 BURNT_KEY = "burnt"
@@ -7,13 +8,21 @@ PROTEIN_KEY = "protein"
 WEIGHT_KEY = "weight"
 DAY_KEYS = MEALS + [BURNT_KEY, PROTEIN_KEY, WEIGHT_KEY]
 
-if os.path.exists("kcalendar.json"):
-    with open("kcalendar.json", "r") as f:
+def app_path():
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    else:
+        return os.path.dirname(os.path.abspath(__file__))
+    
+BASE_DIR = app_path()
+DATA_FILE = os.path.join(BASE_DIR, "kcalendar.json")
+SETTINGS_FILE = os.path.join(BASE_DIR, "user_settings.json")
+
+if os.path.exists(DATA_FILE):
+    with open(DATA_FILE, "r") as f:
         kcalendar = json.load(f)
 else:
     kcalendar = {}
-
-SETTINGS_FILE = "user_settings.json"
 
 
 def app_print(text):
@@ -267,7 +276,7 @@ def log_update():
                      "weight":weight_val}
     kcalendar[date] = day_data
     print(kcalendar)
-    with open("kcalendar.json", "w") as f:
+    with open(DATA_FILE, "w") as f:
         json.dump(kcalendar, f, indent=2, sort_keys=True)
 
 def update_today():
@@ -303,7 +312,7 @@ def update_today():
             day["weight"] = wval
 
 
-    with open("kcalendar.json", "w") as f:
+    with open(DATA_FILE, "w") as f:
         json.dump(kcalendar, f, indent=2, sort_keys=True)
 
     tcal = total_cal(day)
